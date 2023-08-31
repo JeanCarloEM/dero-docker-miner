@@ -10,10 +10,12 @@ ENV CORES="4"
 
 # Install necessary packages
 RUN apk update && \
-    apk add --no-cache ca-certificates wget tar sudo bash htop
+    apk add --no-cache ca-certificates wget tar sudo bash
 
 RUN mkdir /app
 COPY start.sh /app/
+
+RUN chmod +x /app/*
 
 # Set the working directory
 WORKDIR /app
