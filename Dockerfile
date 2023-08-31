@@ -17,5 +17,7 @@ COPY start.sh /app/
 
 RUN chmod +x /app/*
 
+RUN sudo wget -c $RELEASE  -O - | sudo tar -xz -C /app/
+
 # RUN MINER
 ENTRYPOINT ["/bin/bash","-c","/app/start.sh"]

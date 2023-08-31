@@ -3,9 +3,6 @@
 # CREATE DIR
   [ -d "/data" ] || mkdir "/data"
 
-# GET BINARIES
-sudo wget -c $RELEASE  -O - | sudo tar -xz -C /app/
-
 sudo chmod +x /app/dero_linux_amd64/dero-miner-linux-amd64
 sudo chmod +x /app/dero_linux_amd64/derod-linux-amd64
 
