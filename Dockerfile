@@ -10,7 +10,7 @@ ENV CORES="4"
 
 # Install necessary packages
 RUN apk update && \
-    apk add --no-cache ca-certificates tar wget sudo bash sh
+    apk add --no-cache ca-certificates tar wget sudo bash
 
 RUN mkdir /app
 COPY start.sh /app/
