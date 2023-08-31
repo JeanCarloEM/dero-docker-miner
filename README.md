@@ -1,7 +1,7 @@
 # Build
 
 ```console
-docker build . -t derohe:latest
+docker build . -t ghcr.io/jeancarloem/derohe:latest
 ```
 
 # Run
@@ -9,13 +9,13 @@ docker build . -t derohe:latest
 ### In production
 
 ```console
-docker -D run -v path-to-data:/data derominer:latest
+docker -D run -v path-to-data:/data ghcr.io/jeancarloem/derohe:latest
 ```
 
 ### In debug
 
 ```console
-docker -D run -v path-to-data:/data --rm -i -t derominer:latest /bin/bash
+docker -D run -v path-to-data:/data --rm -i -t ghcr.io/jeancarloem/derohe:latest /bin/bash
 ```
 
 # Environmentals and default values

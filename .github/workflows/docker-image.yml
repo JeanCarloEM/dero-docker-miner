@@ -1,18 +1,17 @@
-name: Docker Image CI
+name: Docker Image for GHCR
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches: ["master"]
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag derohe:$(date +%s)
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: |
+          docker login --username jeancarloem --password ${{ secrets.GHCR_GHP }} ghcr.io
+          docker build . --file Dockerfile --tag ghcr.io/jeancarloem/derohe:latest
+          docker push ghcr.io/jeancarloem/derohe:latest
