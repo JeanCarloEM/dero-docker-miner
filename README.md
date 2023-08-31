@@ -12,7 +12,7 @@ docker build . -t derohe:latest
 docker -D run -v path-to-data:/data derominer:latest
 ```
 
-### Ind debug
+### In debug
 
 ```console
 docker -D run -v path-to-data:/data --rm -i -t derominer:latest /bin/bash
