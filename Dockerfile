@@ -10,15 +10,12 @@ ENV CORES="4"
 
 # Install necessary packages
 RUN apk update && \
-    apk add --no-cache ca-certificates wget tar sudo bash
+    apk add --no-cache ca-certificates tar wget sudo bash sh
 
 RUN mkdir /app
 COPY start.sh /app/
 
 RUN chmod +x /app/*
-
-# Set the working directory
-WORKDIR /app
 
 # RUN MINER
 ENTRYPOINT ["/bin/bash","-c","/app/start.sh"]
