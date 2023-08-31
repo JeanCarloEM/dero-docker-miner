@@ -18,4 +18,5 @@ COPY start.sh /app/
 # Set the working directory
 WORKDIR /app
 
+# RUN MINER
 ENTRYPOINT ["/bin/bash","-c","/app/start.sh"]
