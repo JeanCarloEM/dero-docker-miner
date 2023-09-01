@@ -9,22 +9,22 @@ docker build . -t ghcr.io/jeancarloem/derohe:latest
 ### In production
 
 ```console
-docker -D run -v path-to-data:/data ghcr.io/jeancarloem/derohe:latest
+docker run -v ghcr.io/jeancarloem/derohe:latest \
+  path-to-data:/data \
+  WALLET="<you-wallet>" \
+  DAEMON="<daemon-url-and-port>" \
+  CORES="4"
 ```
 
 ### In debug
 
 ```console
-docker -D run -v path-to-data:/data --rm -i -t ghcr.io/jeancarloem/derohe:latest /bin/bash
+docker -D run -v ghcr.io/jeancarloem/derohe:latest \
+  path-to-data:/data \
+  WALLET="<you-wallet>" \
+  DAEMON="<daemon-url-and-port>" \
+  CORES="4"
 ```
-
-# Environmentals and default values
-
-* WALLET="dero1qyg62k4jx2yz775w3k4wh7gv3e68kf8vla702upgdskl6gr40wfggqqpck70r"
-* DAEMON="dero.friendspool.club:10300"
-* RELEASE="https://github.com/deroproject/derohe/releases/download/Release140/dero_linux_amd64.tar.gz"
-* CORES="4"
-
 ### Important
 
 Change wallet address on run
