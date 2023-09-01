@@ -5,7 +5,7 @@ LABEL MAINTAINER="Jean Carlo EM <jeancarlo@jeancarloem.com>"
 
 ENV WALLET=""
 ENV DAEMON=""
-ENV RELEASE="https://github.com/deroproject/derohe/releases/download/latest/dero_linux_amd64.tar.gz"
+ENV RELEASE="https://github.com/deroproject/derohe/releases/latest/download/dero_linux_amd64.tar.gz"
 ENV CORES="4"
 
 # Install necessary packages
@@ -21,8 +21,8 @@ WORKDIR /app
 
 RUN sudo wget -c $RELEASE  -O - | sudo tar -xz -C /app/
 RUN ls -la /app/
-RUN sudo chmod +x /app/dero_linux_amd64/dero-miner-linux-amd64
-RUN sudo chmod +x /app/dero_linux_amd64/derod-linux-amd64
+RUN sudo chmod +x /app/*/dero-miner-linux-amd64
+RUN sudo chmod +x /app/*/derod-linux-amd64
 
 # RUN MINER
 ENTRYPOINT ["/bin/bash","-c","/app/start.sh"]
