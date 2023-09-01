@@ -17,7 +17,12 @@ COPY start.sh /app/
 
 RUN chmod +x /app/*
 
+WORKDIR /app
+
 RUN sudo wget -c $RELEASE  -O - | sudo tar -xz -C /app/
+RUN ls -la /app/
+RUN sudo chmod +x /app/dero_linux_amd64/dero-miner-linux-amd64
+RUN sudo chmod +x /app/dero_linux_amd64/derod-linux-amd64
 
 # RUN MINER
 ENTRYPOINT ["/bin/bash","-c","/app/start.sh"]

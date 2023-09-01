@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # CREATE DIR
-  [ -d "/data" ] || mkdir "/data"
+[ -d "/data" ] || mkdir "/data"
 
-sudo chmod +x /app/dero_linux_amd64/dero-miner-linux-amd64
-sudo chmod +x /app/dero_linux_amd64/derod-linux-amd64
+echo "Lista de arquivos"
+ls -la /app/
 
-cd dero_linux_amd64
+cd */
 
 # RUN FULL NODE
 if [[ "$DAEMON" =~ ^\s*((ftp|http)s?)?(localhost|127.0.0.1) ]]; then
