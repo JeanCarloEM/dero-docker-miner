@@ -17,12 +17,12 @@ ls -la ./
 
 if [ -z "$WALLET" ]
   echo -e "${RED}Environment WALLET is empty${NC}"
-  exit
+  exit 0
 fi
 
 if [ -z "$DAEMON" ]
   echo -e "${RED}Environment DAEMON is empty${NC}"
-  exit
+  exit 0
 fi
 
 # RUN FULL NODE
