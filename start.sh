@@ -30,6 +30,7 @@ if [[ "$DAEMON" =~ ^\s*((ftp|http)s?)?(localhost|127.0.0.1) ]]; then
   echo -e "${YELLOW}Running SELF NODE${NC}"
 
   sudo ./derod-linux-amd64 --fastsync --data-dir=/data --integrator-address=$WALLE --rpc-bind=127.0.0.1:10100 &
+
 else
   echo -e "${YELLOW}Running a non full-node${NC}"
 fi
