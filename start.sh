@@ -17,13 +17,15 @@ ls -la ./
 
 if [ -z "$WALLET" ]
   echo -e "${RED}Environment WALLET is empty${NC}"
-  exit 0
+  exit 1
 fi
 
 if [ -z "$DAEMON" ]
   echo -e "${RED}Environment DAEMON is empty${NC}"
-  exit 0
+  exit 2
 fi
+
+echo -e "${YELLOW}Running miner...${NC}"
 
 # RUN FULL NODE
 if [[ "$DAEMON" =~ ^\s*((ftp|http)s?)?(localhost|127.0.0.1) ]]; then
@@ -31,8 +33,6 @@ if [[ "$DAEMON" =~ ^\s*((ftp|http)s?)?(localhost|127.0.0.1) ]]; then
 
   sudo ./derod-linux-amd64 --fastsync --data-dir=/data --integrator-address=$WALLE --rpc-bind=127.0.0.1:10100 &
 
-else
-  echo -e "${YELLOW}Running a non full-node${NC}"
 fi
 
 # RUN WALLET
