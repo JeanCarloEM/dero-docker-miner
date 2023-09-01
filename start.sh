@@ -7,23 +7,12 @@ NC='\033[0m'
 # CREATE DIR
 [ -d "/data" ] || mkdir "/data"
 
-echo -e "${YELLOW}Lista do diretório /app/${NC}"
+echo -e "${YELLOW}Lista do diretório /app/${NC}" && ls -la /app/
 
-ls -la /app/ && cd */
+cd */ && echo -e "${YELLOW}Lista do diretório /app/*/${NC}" && ls -la ./
 
-echo -e "${YELLOW}Lista do diretório /app/*/${NC}"
-
-ls -la ./
-
-if [ -z "$WALLET" ]
-  echo -e "${RED}Environment WALLET is empty${NC}"
-  exit 1
-fi
-
-if [ -z "$DAEMON" ]
-  echo -e "${RED}Environment DAEMON is empty${NC}"
-  exit 2
-fi
+[ -z "$WALLET" ] && { echo -e "${RED}Environment WALLET is empty${NC}" ; exit 1 ; }
+[ -z "$DAEMON" ] && { echo -e "${RED}Environment DAEMON is empty${NC}" ; exit 2 ; }
 
 echo -e "${YELLOW}Running miner...${NC}"
 
